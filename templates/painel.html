@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel de Stock - Terra Viva</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2>Painel Geral de Stock e Alertas de Validade</h2>
+        <p class="text-secondary">Monitore os lotes em risco de vencimento para evitar desperdícios (ODS 2).</p>
+        
+        <table class="table table-bordered table-striped mt-4 bg-white shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID Lote</th>
+                    <th>Item</th>
+                    <th>Quantidade</th>
+                    <th>Validade</th>
+                    <th>Status (Acessibilidade por Cor e Texto)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lote in lotes %}
+                <tr>
+                    <td>#{{ lote[0] }}</td>
+                    <td>{{ lote[1] }}</td>
+                    <td>{{ lote[2] }} {{ lote[3] }}</td>
+                    <td>{{ lote[4] }}</td>
+                    <td>
+                        {% if "Crítico" in lote[6] %}
+                            <span class="badge bg-danger p-2">⚠️ {{ lote[6] }}</span>
+                        {% else %}
+                            <span class="badge bg-success p-2">✅ {{ lote[6] }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" class="text-center text-muted">Nenhum lote registado até o momento.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="btn btn-secondary mt-3" style="min-width: 44px; min-height: 44px;">Voltar ao Menu</a>
+    </div>
+</body>
+</html>
