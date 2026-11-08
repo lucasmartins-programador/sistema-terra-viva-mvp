@@ -15,7 +15,7 @@ Sistema desenvolvido como MVP (Minimum Viable Product) para otimizar o fluxo de 
 ## 🚀 Como Executar o Projeto Localmente
 
 1. Certifica-te de que tens o Python instalado no teu computador.
-2. Instala o Flask (se ainda não o tiveres):
+2. Instala o Flask (se ainda não o tiver instalado):
    ```bash
    pip install flask
 1. Clona este repositório ou descarrega os ficheiros para uma pasta local.
